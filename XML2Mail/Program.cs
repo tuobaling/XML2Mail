@@ -114,7 +114,7 @@ class Program
                     if (colName == totalColName)
                     {
                         cell.Value = roundedTotal;
-                        cell.Style.NumberFormat.Format = "\"NT$\"#,##0.00";
+                        cell.Style.NumberFormat.Format = "\"NT$\"#,##0";
                     }
                     else if (c == 0)
                     {
@@ -130,7 +130,7 @@ class Program
                 summarySheet.Cell(summaryRow, 2).Value = subName;
                 summarySheet.Cell(summaryRow, 3).Value = totalColName;
                 summarySheet.Cell(summaryRow, 4).Value = roundedTotal;
-                summarySheet.Cell(summaryRow, 4).Style.NumberFormat.Format = "\"NT$\"#,##0.00";
+                summarySheet.Cell(summaryRow, 4).Style.NumberFormat.Format = "\"NT$\"#,##0";
                 summaryRow++;
             }
         }
