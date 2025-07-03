@@ -103,6 +103,9 @@ class Program
                     currentRow++;
                 }
 
+                // 四捨五入金額
+                double roundedTotal = Math.Round(total, 0, MidpointRounding.AwayFromZero);
+
                 // 總計列
                 for (int c = 0; c < headers.Count; c++)
                 {
@@ -110,7 +113,7 @@ class Program
                     var cell = wsNew.Cell(currentRow, c + 1);
                     if (colName == totalColName)
                     {
-                        cell.Value = total;
+                        cell.Value = roundedTotal;
                         cell.Style.NumberFormat.Format = "\"NT$\"#,##0.00";
                     }
                     else if (c == 0)
@@ -126,7 +129,7 @@ class Program
                 summarySheet.Cell(summaryRow, 1).Value = customer;
                 summarySheet.Cell(summaryRow, 2).Value = subName;
                 summarySheet.Cell(summaryRow, 3).Value = totalColName;
-                summarySheet.Cell(summaryRow, 4).Value = total;
+                summarySheet.Cell(summaryRow, 4).Value = roundedTotal;
                 summarySheet.Cell(summaryRow, 4).Style.NumberFormat.Format = "\"NT$\"#,##0.00";
                 summaryRow++;
             }
